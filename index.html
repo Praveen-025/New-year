@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="
+  width=device-width,
+  initial-scale=1.0,
+  maximum-scale=1.0,
+  user-scalable=no
+">
+<title>New Year Love</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* 🔒 LOCK DESKTOP */
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#ffd6e0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Pacifico',cursive;
+}
+
+/* 📱 MOBILE APP CONTAINER */
+.app{
+    width:100%;
+    max-width:420px;
+    height:100%;
+    background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a6c1ee);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+    position:relative;
+    overflow:hidden;
+    color:#4a1c2f;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* PAGES */
+.page{
+    display:none;
+    width:100%;
+    height:100%;
+    padding:16px;
+}
+.page.active{display:block}
+
+.center{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+/* UI */
+.glass{
+    width:100%;
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(18px);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 15px 40px rgba(255,105,135,0.4);
+}
+
+button{
+    width:100%;
+    margin-top:18px;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ff5f9e,#ff8fb3);
+    color:white;
+    font-family:'Pacifico',cursive;
+    font-size:18px;
+    box-shadow:0 8px 25px rgba(255,95,158,0.6);
+}
+button:active{transform:scale(0.95)}
+
+.scroll-box{
+    width:100%;
+    max-height:65vh;
+    overflow-y:auto;
+    padding:18px;
+    background:rgba(255,255,255,0.7);
+    border-radius:22px;
+}
+
+.frame{
+    background:linear-gradient(135deg,#fff,#ffd1dc);
+    padding:10px;
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(255,105,135,0.45);
+    margin-bottom:16px;
+}
+img,video{width:100%;border-radius:16px}
+
+/* PASSWORD */
+.pass-box{position:relative}
+.pass-box input{
+    width:100%;
+    padding:14px 45px 14px 14px;
+    border-radius:18px;
+    border:none;
+}
+.eye{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+/* HEARTS */
+.heart{
+    position:absolute;
+    color:#ff5e8e;
+    font-size:16px;
+    animation:float 9s linear infinite;
+}
+@keyframes float{
+    from{transform:translateY(100vh);opacity:1}
+    to{transform:translateY(-10vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<audio autoplay loop>
+<source src="music.mp3">
+</audio>
+
+<!-- PASSWORD -->
+<div class="page active" id="p0">
+<div class="center">
+<div class="glass">
+<h3>🔐 Enter Password</h3>
+<div class="pass-box">
+<input id="pass" type="password" placeholder="Enter password">
+<span class="eye" onclick="toggle()">👁️</span>
+</div>
+<p>Password guess is your name + your husband name 💞</p>
+<button onclick="check()">Enter</button>
+</div>
+</div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page" id="p1">
+<div class="center">
+<button onclick="go(2)">Click Here 💖</button>
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<div class="center">
+<h2>🎉 Happy New Year 2026 🎉</h2>
+<button onclick="go(3)">Open it ✨</button>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<div class="center">
+<div class="scroll-box">
+💖 Happy new year 2026 my dear babu 💖<br><br>
+Mai aasa karta hu ki tumhe iss saal bahut sara kushi mile 😊🌸  
+aur hamesa milta rahe 💫💞  
+aur tumhara pura saal tumhare sath kuch bura na ho 🙏❤️
+</div>
+<button onclick="go(4)">Memories 📸</button>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+<div class="center">
+<div class="scroll-box">
+<div class="frame"><img src="photo1.jpg"></div>
+<div class="frame"><img src="photo2.jpg"></div>
+<div class="frame"><img src="photo3.jpg"></div>
+<div class="frame"><img src="photo4.jpg"></div>
+<div class="frame"><img src="photo5.jpg"></div>
+<div class="frame"><img src="photo6.jpg"></div>
+<div class="frame"><img src="photo7.jpg"></div>
+<div class="frame"><img src="photo8.jpg"></div>
+<div class="frame"><img src="photo9.jpg"></div>
+<div class="frame"><img src="photo10.jpg"></div>
+</div>
+<button onclick="go(5)">Watch this 🎥</button>
+</div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+<div class="center">
+<div class="frame">
+<video id="vid" controls>
+<source src="video.mp4">
+</video>
+</div>
+<button id="afterVideo" style="display:none" onclick="go(6)">Read this pls 💌</button>
+</div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="p6">
+<div class="center">
+<div class="scroll-box">
+💔 Letter of Apology 💔<br><br>
+2025 mai maine tumhe bahut hurt kiya uske liye maafi chahta hu…  
+<br><br>I really love you more than anything ❤️
+</div>
+<button onclick="whatsapp('I accept ❤️')">Accept 💞</button>
+<button onclick="whatsapp(`I'm not ready`)">Reject 💔</button>
+</div>
+</div>
+
+</div>
+
+<script>
+const PASSWORD="madhurimapraveen";
+
+function toggle(){
+ pass.type = pass.type==="password"?"text":"password";
+}
+function check(){
+ if(pass.value.toLowerCase()===PASSWORD){go(1)}
+ else alert("Wrong password");
+}
+function go(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('p'+n).classList.add('active');
+}
+vid.onended=()=>{
+ afterVideo.style.display="block";
+ vid.requestFullscreen();
+}
+function whatsapp(msg){
+ window.location.href="https://wa.me/7337013972?text="+encodeURIComponent(msg);
+}
+setInterval(()=>{
+ let h=document.createElement("div");
+ h.className="heart";
+ h.innerHTML="❤";
+ h.style.left=Math.random()*100+"vw";
+ document.querySelector('.app').appendChild(h);
+ setTimeout(()=>h.remove(),9000);
+},800);
+</script>
+
+</body>
+</html>
